@@ -2,7 +2,7 @@
 
 Este es un proyecto de Python que calcula estadísticas para datos no agrupados (menos de 30 elementos) y datos agrupados (30 o más elementos), sin hacer uso de librerías externas como `math` o `statistics`. Todos los cálculos, como la media aritmética, moda, varianza y desviación estándar, se realizan manualmente dentro del código.
 
-![Screenshot del programa en ejecución](pro/Captura de pantalla 2024-09-24 132744.png)
+![Captura de pantalla 2024-09-24 132744](https://github.com/user-attachments/assets/2712ec9f-4230-4af1-86cc-1cef292a4098)
 
 ## **Instalación**
 
