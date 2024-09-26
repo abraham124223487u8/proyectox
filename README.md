@@ -60,11 +60,10 @@ Desviación Estándar: 6.02
 
 ---
 
-## **Ejemplo de Ejecución**
+Ejemplo de Ejecución
 
-### **Datos No Agrupados** (menos de 30 elementos):
+Datos No Agrupados (menos de 30 elementos):
 
-```plaintext
 Ingrese el número de elementos: 4
 Elemento 1: 12
 Elemento 2: 8
