@@ -1,4 +1,3 @@
-import statistics as stats
 import math
 from collections import Counter
 
@@ -7,7 +6,7 @@ def datos_no_agrupados(muestra):
     media = sum(muestra) / len(muestra)
     mayor = max(muestra)
     menor = min(muestra)
-    moda = Counter(muestra).most_common(1)[0]  # (dato, frecuencia)
+    moda = Counter(muestra).most_common(1)[0][0]  # Solo el dato más frecuente
     
     varianza = sum((x - media) ** 2 for x in muestra) / len(muestra)
     desviacion_estandar = math.sqrt(varianza)
@@ -21,14 +20,13 @@ def datos_no_agrupados(muestra):
         "Desviación Estándar": desviacion_estandar
     }
 
-# Función para datos agrupados (recibe frecuencias y valores)
-def datos_agrupados(valores, frecuencias):
-    total_elementos = sum(frecuencias)
+# Función para datos agrupados sin frecuencias
+def datos_agrupados(valores):
+    n = len(valores)
+    media = sum(valores) / n
+    moda = Counter(valores).most_common(1)[0][0]  # Valor con mayor frecuencia
     
-    media = sum(v * f for v, f in zip(valores, frecuencias)) / total_elementos
-    moda = Counter(frecuencias).most_common(1)[0]  # (frecuencia, veces que se repite)
-    
-    varianza = sum(((v - media) ** 2) * f for v, f in zip(valores, frecuencias)) / total_elementos
+    varianza = sum((x - media) ** 2 for x in valores) / n
     desviacion_estandar = math.sqrt(varianza)
     
     return {
@@ -41,15 +39,14 @@ def datos_agrupados(valores, frecuencias):
 # Función principal
 def main():
     n = int(input("Ingrese el número de elementos: "))
+    
     muestra = [int(input(f"Elemento {i+1}: ")) for i in range(n)]
     
     if n < 30:
         resultados = datos_no_agrupados(muestra)
     else:
-        frecuencias = [int(input(f"Frecuencia para el valor {v}: ")) for v in muestra]
-        resultados = datos_agrupados(muestra, frecuencias)
+        resultados = datos_agrupados(muestra)
     
-    # Mostrar resultados
     for key, value in resultados.items():
         print(f"{key}: {value}")
 
